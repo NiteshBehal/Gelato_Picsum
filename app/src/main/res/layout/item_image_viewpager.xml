@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="image"
+            type="com.gelato.picsum.data.models.ImageData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/image_iv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:loadImage="@{image}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_download"
+            />
+
+        <Button
+            android:id="@+id/btn_download"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_share"
+            android:layout_margin="20dp"
+            android:text="Download"
+            />
+
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toEndOf="@+id/btn_download"
+            app:layout_constraintTop_toTopOf="@+id/btn_download"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_download"
+            android:text="Share"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
