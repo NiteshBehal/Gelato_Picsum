@@ -5,6 +5,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.gelato.picsum.R
 import com.gelato.picsum.data.models.ImageData
 
 @BindingAdapter("app:loadImage")
@@ -14,8 +15,9 @@ fun ImageView.loadImage(image: ImageData) {
             .override(this.width, this.height)
             .fitCenter()
         Glide
-            .with(this.context)
+            .with(context)
             .load(image.download_url)
+            .placeholder(R.drawable.default_img)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .apply(myOptions)
             .into(this)

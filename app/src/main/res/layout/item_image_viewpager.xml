@@ -12,36 +12,12 @@
         android:layout_height="match_parent">
 
         <com.github.chrisbanes.photoview.PhotoView
-            android:id="@+id/image_iv"
+            android:id="@+id/iv_zoom_image"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:loadImage="@{image}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btn_download"
-            />
-
-        <Button
-            android:id="@+id/btn_download"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="@dimen/dimen_0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_share"
-            android:layout_margin="20dp"
-            android:text="Download"
-            />
-
-        <Button
-            android:id="@+id/btn_share"
-            android:layout_margin="20dp"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            app:layout_constraintStart_toEndOf="@+id/btn_download"
-            app:layout_constraintTop_toTopOf="@+id/btn_download"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_download"
-            android:text="Share"
-            />
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{image}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

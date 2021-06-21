@@ -8,11 +8,10 @@ import androidx.paging.cachedIn
 import com.gelato.picsum.data.models.ImageData
 import com.gelato.picsum.data.repository.PicsumRepo
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 @ExperimentalPagingApi
-class ImageListViewModel(
-    repo: PicsumRepo
-) : ViewModel() {
+class ImageListViewModel @Inject constructor(repo: PicsumRepo) : ViewModel() {
 
     private val imageResult: Flow<PagingData<ImageData>> =
         repo.fetchImageList().cachedIn(viewModelScope)

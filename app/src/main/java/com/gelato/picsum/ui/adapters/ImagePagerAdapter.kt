@@ -1,16 +1,13 @@
 package com.gelato.picsum.ui.adapters
 
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import com.gelato.picsum.data.models.ImageData
 import com.gelato.picsum.ui.adapters.viewholders.PagerItemViewholder
 
-class ImagePagerAdapter(
-    val downloadImage: (String?) -> Unit,
-    val shareImage: (String?) -> Unit
-) :
-    PagingDataAdapter<ImageData, PagerItemViewholder>(DATA_COMPARTOR) {
+class ImagePagerAdapter: RecyclerView.Adapter<PagerItemViewholder>() {
+    private var imageList: List<ImageData>? = null
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -19,34 +16,17 @@ class ImagePagerAdapter(
     }
 
     override fun onBindViewHolder(holder: PagerItemViewholder, position: Int) {
-        getItem(position)?.let { data ->
+        imageList?.get(position)?.let { data ->
             holder.bind(data)
-            holder.binding.btnDownload.setOnClickListener {
-                downloadImage.invoke(data.download_url)
-            }
-            holder.binding.btnShare.setOnClickListener {
-                shareImage.invoke(data.download_url)
-            }
         }
     }
 
-    companion object {
-        private val DATA_COMPARTOR =
-            object : DiffUtil.ItemCallback<ImageData>() {
-                override fun areItemsTheSame(
-                    oldItem: ImageData,
-                    newItem: ImageData
-                ): Boolean {
-                    return oldItem.id == newItem.id
-                }
+    override fun getItemCount(): Int {
+        return imageList?.size ?: 0
+    }
 
-                override fun areContentsTheSame(
-                    oldItem: ImageData,
-                    newItem: ImageData
-                ): Boolean {
-                    return oldItem == newItem
-                }
-
-            }
+    fun submitList(images: List<ImageData>) {
+        this.imageList = images
+        notifyDataSetChanged()
     }
 }

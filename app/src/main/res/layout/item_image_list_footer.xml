@@ -5,30 +5,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="@dimen/dimen_8dp">
 
         <TextView
-            android:id="@+id/error_msg"
+            android:id="@+id/tv_error_msg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textColor="?android:textColorPrimary"
-            android:textSize="20sp"
-            android:text="Something went wrong" />
+            android:textSize="@dimen/font_20sp"
+            android:text="@string/something_went_wrong" />
 
         <ProgressBar
-            android:id="@+id/progress_bar"
+            android:id="@+id/pb_loading"
             style="?android:attr/progressBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
         <Button
-            android:id="@+id/retry_button"
+            android:id="@+id/btn_retry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="retry" />
+            android:text="@string/retry" />
     </LinearLayout>
 </layout>

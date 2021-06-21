@@ -1,4 +1,4 @@
-package com.gelato.picsum.data.repository
+package com.gelato.picsum.data.paging
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
@@ -20,8 +20,7 @@ class ImagesRemoteMediator(
         loadType: LoadType,
         state: PagingState<Int, ImageData>
     ): MediatorResult {
-        val pageKey = getPageKey(state, loadType)
-        val page = when (pageKey) {
+        val page = when (val pageKey = getPageKey(state, loadType)) {
             is MediatorResult.Success -> {
                 return pageKey
             }
@@ -35,7 +34,7 @@ class ImagesRemoteMediator(
             val isListEmpty = response.isEmpty()
             database.withTransaction {
                 if (loadType == LoadType.REFRESH) {
-                    database.remoteDao().deleteByQuery()
+                    database.remoteDao().clearAll()
                     database.imageDao().clearAll()
                 }
                 val prevKey = if (page == 1) null else page - 1
@@ -65,7 +64,8 @@ class ImagesRemoteMediator(
             LoadType.APPEND -> {
                 val remoteKeys = getLastPosition(state)
                 val nextKey = remoteKeys?.nextKey
-                return nextKey ?: MediatorResult.Success(endOfPaginationReached = false)
+                return nextKey
+                    ?: MediatorResult.Success(endOfPaginationReached = false)
             }
             LoadType.PREPEND -> {
                 val remoteKeys = getFirstPosition(state)
@@ -81,8 +81,6 @@ class ImagesRemoteMediator(
             it.data.isNotEmpty()
         }?.data?.lastOrNull()?.let { imageData ->
             database.remoteDao().remoteKeyByQuery(imageData.id)
-
-
         }
     }
 

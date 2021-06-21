@@ -6,14 +6,63 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pdf_view_pager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="@dimen/dimen_4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextAppearance="@style/Toolbar.TextAppearance" />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_images"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
+            app:layout_constraintBottom_toTopOf="@+id/menu_exp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <client.yalantis.com.foldingtabbar.FoldingTabBar
+            android:id="@+id/menu_exp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:backgroundTint="@color/black_200"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/img_right_arrow"
+            app:layout_constraintStart_toEndOf="@+id/img_left_arrow"
+            app:menu="@menu/option_menu" />
+
+        <ImageView
+            android:id="@+id/img_right_arrow"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:padding="@dimen/dimen_20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/right"
+            app:layout_constraintBottom_toBottomOf="@id/menu_exp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/menu_exp" />
+
+        <ImageView
+            android:id="@+id/img_left_arrow"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:padding="@dimen/dimen_20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/left"
+            app:layout_constraintBottom_toBottomOf="@id/menu_exp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/menu_exp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

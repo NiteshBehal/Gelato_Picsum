@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.gelato.picsum.data.models.ImageData
 import com.gelato.picsum.ui.adapters.viewholders.ImageViewHolder
 
-class ImageListAdapter(val imageClick: (Int) -> Unit) :
+class ImageListAdapter(val imageClick: (String) -> Unit) :
     PagingDataAdapter<ImageData, ImageViewHolder>(DATA_COMPARTOR) {
     private val set = ConstraintSet()
     override fun onCreateViewHolder(
@@ -20,20 +20,20 @@ class ImageListAdapter(val imageClick: (Int) -> Unit) :
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         getItem(position)?.let {
             val ratio = String.format("%d:%d", it.width, it.height)
-            set.clone(holder.binding.parentContsraint)
-            set.setDimensionRatio(holder.binding.ivPhoto.id, ratio)
-            set.applyTo(holder.binding.parentContsraint)
-            setItemClick(holder, position)
+            set.clone(holder.binding.clParent)
+            set.setDimensionRatio(holder.binding.ivImage.id, ratio)
+            set.applyTo(holder.binding.clParent)
+            setItemClick(holder, it)
             holder.bind(it)
         }
     }
 
     private fun setItemClick(
         holder: ImageViewHolder,
-        position: Int
+        imageData: ImageData
     ) {
         holder.itemView.setOnClickListener {
-            imageClick.invoke(position)
+            imageClick.invoke(imageData.id)
         }
 
     }

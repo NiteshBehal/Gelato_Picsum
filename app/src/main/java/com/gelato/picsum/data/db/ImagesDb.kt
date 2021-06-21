@@ -12,7 +12,7 @@ import com.gelato.picsum.data.models.RemoteKey
     version = 1,
     exportSchema = false
 )
-abstract class ImagesDb: RoomDatabase() {
+abstract class ImagesDb : RoomDatabase() {
     abstract fun imageDao(): ImageDao
     abstract fun remoteDao(): RemoteDao
 

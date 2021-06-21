@@ -11,7 +11,7 @@ class PagerItemViewholder(val binding: ItemImageViewpagerBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(data: ImageData) {
         binding.image = data
-        ViewCompat.setTransitionName(binding.imageIv, data.download_url);
+        ViewCompat.setTransitionName(binding.ivZoomImage, data.download_url);
     }
 
     companion object {

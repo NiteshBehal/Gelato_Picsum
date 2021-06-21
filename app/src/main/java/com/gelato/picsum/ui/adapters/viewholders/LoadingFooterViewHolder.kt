@@ -12,13 +12,13 @@ class LoadingFooterViewHolder(
     retry: () -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
     init {
-        binding.retryButton.setOnClickListener { retry.invoke() }
+        binding.btnRetry.setOnClickListener { retry.invoke() }
     }
 
     fun bind(loadState: LoadState) {
-        binding.errorMsg.isVisible = loadState is LoadState.Error
-        binding.progressBar.isVisible = loadState is LoadState.Loading
-        binding.retryButton.isVisible = loadState !is LoadState.Loading
+        binding.tvErrorMsg.isVisible = loadState is LoadState.Error
+        binding.pbLoading.isVisible = loadState is LoadState.Loading
+        binding.btnRetry.isVisible = loadState !is LoadState.Loading
 
     }
 

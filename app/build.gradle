@@ -78,26 +78,6 @@ dependencies {
 
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
-//    implementation("androidx.room:room-runtime:$room_version")
-//    annotationProcessor "androidx.room:room-compiler:$room_version"
-//    kapt("androidx.room:room-compiler:$room_version")
-//    implementation("androidx.room:room-ktx:$room_version")
-
-//    implementation("androidx.room:room-runtime:$room_version") {
-//        exclude(group:'org.xerial')
-//    }
-//    annotationProcessor("androidx.room:room-compiler:$room_version"){
-//        exclude(group:'org.xerial')
-//    }
-//    kapt("androidx.room:room-compiler:$room_version"){
-//        exclude(group:'org.xerial')
-//    }
-//    implementation("androidx.room:room-ktx:$room_version"){
-//        exclude(group:'org.xerial')
-//    }
-//    implementation 'org.xerial:sqlite-jdbc:3.34.0'
-
-//    def room_version = "2.3.0-alpha03"
     implementation("androidx.room:room-runtime:$room_version") {
         exclude(group:'org.xerial')
     }
@@ -107,7 +87,10 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version"){
         exclude(group:'org.xerial')
     }
-
-//    annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation 'org.xerial:sqlite-jdbc:3.34.0'
+
+    def dagger_version = "2.28.3"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation 'com.github.Yalantis:OfficialFoldingTabBar.Android:v0.9'
 }
