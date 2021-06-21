@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gelato.picsum.data.models.ImageData
 import com.gelato.picsum.ui.adapters.viewholders.PagerItemViewholder
 
+/**
+ * Image Detail viewpager adapter
+ */
 class ImagePagerAdapter: RecyclerView.Adapter<PagerItemViewholder>() {
     private var imageList: List<ImageData>? = null
 

@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gelato.picsum.data.models.ImageData
 import com.gelato.picsum.databinding.ItemImageViewpagerBinding
 
+/**
+ * Image Detail viewpager adapter ViewHolder
+ */
 class PagerItemViewholder(val binding: ItemImageViewpagerBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(data: ImageData) {

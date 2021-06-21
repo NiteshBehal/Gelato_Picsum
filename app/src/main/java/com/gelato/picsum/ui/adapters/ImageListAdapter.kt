@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.gelato.picsum.data.models.ImageData
 import com.gelato.picsum.ui.adapters.viewholders.ImageViewHolder
 
+/**
+ * Image Recyclerview Adapter with LoadMore functionality
+ */
 class ImageListAdapter(val imageClick: (String) -> Unit) :
     PagingDataAdapter<ImageData, ImageViewHolder>(DATA_COMPARTOR) {
     private val set = ConstraintSet()

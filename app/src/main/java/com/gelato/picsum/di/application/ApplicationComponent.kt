@@ -7,6 +7,9 @@ import dagger.BindsInstance
 import dagger.Component
 import retrofit2.Retrofit
 
+/**
+ * ApplicationComponent class to inject Application level dependencies
+ */
 @ApplicationScope
 @Component(
     modules = [ApplicationModule::class,

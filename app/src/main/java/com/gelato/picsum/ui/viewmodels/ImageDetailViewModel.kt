@@ -6,6 +6,9 @@ import com.gelato.picsum.data.repository.PicsumRepo
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
+/**
+ * ViewModel class for ImageDetailFragment
+ */
 class ImageDetailViewModel @Inject constructor(repo: PicsumRepo) : ViewModel() {
     val imageList = liveData {
         repo.fetchImagesFromDB().collectLatest {

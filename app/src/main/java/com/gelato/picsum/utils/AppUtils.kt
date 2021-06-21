@@ -19,6 +19,9 @@ import com.bumptech.glide.request.transition.Transition
 import com.gelato.picsum.R
 import java.io.File
 
+/**
+ * Method to check if device is connected to Internet or not
+ */
 fun isNetworkAvailable(context: Context?): Boolean {
     if (context == null) return false
     val connectivityManager =
@@ -27,17 +30,17 @@ fun isNetworkAvailable(context: Context?): Boolean {
         val capabilities =
             connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
         capabilities?.let {
-            when {
+            return when {
                 it.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
-                    return true
+                    true
                 }
                 it.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
-                    return true
+                    true
                 }
                 it.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
-                    return true
+                    true
                 }
-                else -> return false
+                else -> false
             }
         }
     } else {
@@ -49,10 +52,16 @@ fun isNetworkAvailable(context: Context?): Boolean {
     return false
 }
 
+/**
+ * Context extension function to show toast
+ */
 fun Context.showToast(msg: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, msg, duration).show()
 }
 
+/**
+ * Method to share image with all available apps
+ */
 fun shareImage(imageUrl: String?, context: Context) {
     if (!isNetworkAvailable(context)) {
         context.showToast(context.getString(R.string.network_error))
@@ -81,6 +90,9 @@ fun shareImage(imageUrl: String?, context: Context) {
     }
 }
 
+/**
+ * Method to triger share image intent
+ */
 private fun shareImageIntent(bitmap: Bitmap, context: Context) {
     val bitmapPath: String = MediaStore.Images.Media.insertImage(
         context.contentResolver,
@@ -100,6 +112,9 @@ private fun shareImageIntent(bitmap: Bitmap, context: Context) {
     )
 }
 
+/**
+ * Method to trigger image download using DownloadManager
+ */
 fun downloadImage(imageUrl: String?, context: Context) {
     if (!isNetworkAvailable(context)) {
         context.showToast(context.getString(R.string.network_error))

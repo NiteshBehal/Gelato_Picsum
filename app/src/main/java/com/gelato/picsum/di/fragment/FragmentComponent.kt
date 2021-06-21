@@ -6,6 +6,9 @@ import com.gelato.picsum.ui.fragments.ImageDetailFragment
 import com.gelato.picsum.ui.fragments.ImageListFragment
 import dagger.Component
 
+/**
+ * FragmentComponent class to inject Fragment level dependencies
+ */
 @ExperimentalPagingApi
 @FragmentScope
 @Component(

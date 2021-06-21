@@ -13,6 +13,9 @@ import com.gelato.picsum.utils.PAGE_LIMIT
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+/**
+ * Repo class to fetch data
+ */
 class PicsumRepo @Inject constructor(
     val imageListApi: ImageListApi,
     val db: ImagesDb

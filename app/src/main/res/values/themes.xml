@@ -17,6 +17,7 @@
 
     <style name="AppTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">@android:color/white</item>
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
     <style name="Toolbar.TextAppearance" parent="android:TextAppearance">

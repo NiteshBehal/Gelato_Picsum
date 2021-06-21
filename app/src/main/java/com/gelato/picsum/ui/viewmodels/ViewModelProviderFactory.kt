@@ -6,6 +6,9 @@ import com.gelato.picsum.di.fragment.FragmentScope
 import javax.inject.Inject
 import javax.inject.Provider
 
+/**
+ * ProviderFactory class for ViewModel Injection
+ */
 @FragmentScope
 class ViewModelProviderFactory @Inject constructor(private val creators: Map<Class<out ViewModel>,@JvmSuppressWildcards Provider<ViewModel>>) :
     ViewModelProvider.Factory {

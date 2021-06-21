@@ -10,6 +10,9 @@ import com.gelato.picsum.data.repository.PicsumRepo
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+/**
+ * ViewModel class for ImageListFragment
+ */
 @ExperimentalPagingApi
 class ImageListViewModel @Inject constructor(repo: PicsumRepo) : ViewModel() {
 

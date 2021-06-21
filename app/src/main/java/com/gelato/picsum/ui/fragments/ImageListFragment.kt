@@ -30,6 +30,9 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * Fragment to display Image Grid
+ */
 @ExperimentalPagingApi
 class ImageListFragment : Fragment() {
 

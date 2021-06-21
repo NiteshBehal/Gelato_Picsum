@@ -8,6 +8,9 @@ import com.gelato.picsum.di.application.DaggerApplicationComponent
 import com.gelato.picsum.di.fragment.DaggerFragmentComponent
 import com.gelato.picsum.di.fragment.FragmentComponent
 
+/**
+ * Factory class to provide Dagger components
+ */
 object ComponentFactory {
 
     fun createApplicationComponent(context: Context): ApplicationComponent {

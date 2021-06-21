@@ -7,6 +7,9 @@ import androidx.room.RoomDatabase
 import com.gelato.picsum.data.models.ImageData
 import com.gelato.picsum.data.models.RemoteKey
 
+/**
+ * Room Database class
+ */
 @Database(
     entities = [ImageData::class, RemoteKey::class],
     version = 1,

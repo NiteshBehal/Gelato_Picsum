@@ -5,6 +5,9 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import com.gelato.picsum.ui.adapters.viewholders.LoadingFooterViewHolder
 
+/**
+ * Paging list library to load more footer view adapter
+ */
 class LoadingFooterAdapter(private val retry: () -> Unit) :
     LoadStateAdapter<LoadingFooterViewHolder>() {
     override fun onBindViewHolder(

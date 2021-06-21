@@ -10,6 +10,9 @@ import com.gelato.picsum.data.models.ImageData
 import com.gelato.picsum.data.models.RemoteKey
 import com.gelato.picsum.data.network.ImageListApi
 
+/**
+ * RemoteMediator class to support Paging library with Load more functionality
+ */
 @ExperimentalPagingApi
 class ImagesRemoteMediator(
     private val database: ImagesDb,

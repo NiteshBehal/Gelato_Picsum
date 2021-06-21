@@ -23,7 +23,9 @@ import com.gelato.picsum.utils.downloadImage
 import com.gelato.picsum.utils.shareImage
 import javax.inject.Inject
 
-
+/**
+ * Fragment to display Image Detail View Pager
+ */
 @ExperimentalPagingApi
 class ImageDetailFragment : Fragment() {
 
@@ -53,6 +55,9 @@ class ImageDetailFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        binding.toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
         return binding.root
     }
 
@@ -104,9 +109,10 @@ class ImageDetailFragment : Fragment() {
                     binding.imgRightArrow.visibility = View.VISIBLE
                 }
                 binding.toolbar.title =
-                    imageDetailViewModel.imageList.value?.get(position)?.author?.let {
-                        "By: $it"
-                    } ?: getString(R.string.app_name)
+                    imageDetailViewModel.imageList.value
+                        ?.get(position)?.author?.let {
+                            "By: $it"
+                        } ?: getString(R.string.app_name)
             }
         })
 

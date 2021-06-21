@@ -7,6 +7,9 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import com.gelato.picsum.databinding.ItemImageListFooterBinding
 
+/**
+ * Paging list library to load more footer ViewHolder
+ */
 class LoadingFooterViewHolder(
     val binding: ItemImageListFooterBinding,
     retry: () -> Unit

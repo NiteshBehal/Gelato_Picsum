@@ -8,6 +8,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.gelato.picsum.R
 import com.gelato.picsum.data.models.ImageData
 
+/**
+ * BindingAdapter to load image to Image view directly from DataBinding xml
+ */
 @BindingAdapter("app:loadImage")
 fun ImageView.loadImage(image: ImageData) {
     this.post {
